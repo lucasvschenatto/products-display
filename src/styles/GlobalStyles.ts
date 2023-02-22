@@ -1,8 +1,8 @@
-import { createGlobalStyle, DefaultTheme } from 'styled-components';
-import { Cinzel, Lato } from '@next/font/google';
+import { createGlobalStyle, DefaultTheme } from "styled-components";
+import { Cinzel, Lato } from "@next/font/google";
 
-const cinzel = Cinzel({ subsets: ['latin'] });
-const lato400 = Lato({ subsets: ['latin'], weight: '400' });
+const cinzel = Cinzel({ subsets: ["latin"] });
+const lato400 = Lato({ subsets: ["latin"], weight: "400" });
 
 const GlobalStyle = createGlobalStyle<{ theme: DefaultTheme }>`
 //========================================================================================================
@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle<{ theme: DefaultTheme }>`
 //========================================================================================================
 * {
 	box-sizing: border-box;
-	color: ${(props) => props.theme.colors.white};
+	color: ${({ theme }) => theme.colors.white};
 }
 *::before {
 	box-sizing: border-box;
