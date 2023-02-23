@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import Styled from './Gallery.styled';
+import { ReactNode } from "react";
+import Styled from "./Gallery.styled";
 
 export function Gallery({ children }: { children: ReactNode }) {
-	return <Styled.Grid>{children}</Styled.Grid>;
+  return <Styled.Grid>{children}</Styled.Grid>;
 }

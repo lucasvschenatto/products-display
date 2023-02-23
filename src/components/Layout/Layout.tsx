@@ -1,11 +1,11 @@
-import { ReactNode } from 'react';
-import { HeaderBar } from '@/components/HeaderBar';
+import { ReactNode } from "react";
+import { HeaderBar } from "@/components/HeaderBar";
 
 export function Layout({ children }: { children: ReactNode }) {
-	return (
-		<>
-			<HeaderBar />
-			<main>{children}</main>
-		</>
-	);
+  return (
+    <>
+      <HeaderBar />
+      <main>{children}</main>
+    </>
+  );
 }

@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 const StyledContainer = {
   Big: styled.div`
-    background-color: ${({theme}) => theme.colors.lighterBlack};
-    padding: ${({theme}) => theme.spacing['4xs']};
-    border: 1px solid ${({theme}) => theme.colors.darkGrey};
-    border-radius: ${({theme}) => theme.radius.xl};
+    background-color: ${({ theme }) => theme.colors.lighterBlack};
+    padding: ${({ theme }) => theme.spacing["4xs"]};
+    border: 1px solid ${({ theme }) => theme.colors.darkGrey};
+    border-radius: ${({ theme }) => theme.radius.xl};
     position: relative;
-    margin: ${({theme}) => theme.spacing['4xs']};
+    margin: ${({ theme }) => theme.spacing["4xs"]};
     height: 40rem;
     @media (min-width: 640px) and (min-height: 640px) {
       margin: initial;
@@ -28,13 +28,13 @@ const StyledContainer = {
     }
     @media (min-width: 1280px) {
       height: 60vh;
-    } 
+    }
   `,
   Small: styled(Link)`
-    background-color: ${({theme}) => theme.colors.lighterBlack};
-    padding: ${({theme}) => theme.spacing['4xs']};
-    border: 1px solid ${({theme}) => theme.colors.darkGrey};
-    border-radius: ${({theme}) => theme.radius.xl};
+    background-color: ${({ theme }) => theme.colors.lighterBlack};
+    padding: ${({ theme }) => theme.spacing["4xs"]};
+    border: 1px solid ${({ theme }) => theme.colors.darkGrey};
+    border-radius: ${({ theme }) => theme.radius.xl};
     width: 80vw;
     height: 30rem;
     transition: transform 0.1s ease-in-out;
@@ -55,22 +55,22 @@ const StyledContainer = {
     :active {
       transform: scale(0.999);
     }
-  `
-}
+  `,
+};
 
 const ImageContainerBase = styled.div`
-	position: relative;
-	width: 100%;
-	height: 12rem;
-	border-radius: ${({theme}) => theme.radius.l};
-	overflow: hidden;
-	img {
-		object-fit: cover;
-	}
+  position: relative;
+  width: 100%;
+  height: 12rem;
+  border-radius: ${({ theme }) => theme.radius.l};
+  overflow: hidden;
+  img {
+    object-fit: cover;
+  }
 `;
 
 const StyledImageContainer = {
-  Big:styled(ImageContainerBase)`
+  Big: styled(ImageContainerBase)`
     @media (min-width: 1024px) and (min-height: 768px) {
       height: 15rem;
     }
@@ -78,66 +78,74 @@ const StyledImageContainer = {
       height: 20rem;
     }
   `,
-  Small:styled(ImageContainerBase)`
+  Small: styled(ImageContainerBase)`
     @media (min-width: 1024px) {
       width: 100%;
       height: 50%;
     }
-`
-}
+  `,
+};
 
 const StyledTitle = {
-  Big:styled.h3`
+  Big: styled.h3`
     grid-area: title;
-    width:100%;
+    width: 100%;
   `,
   Small: styled.h4`
     grid-area: title;
-    width:100%;
-  `
+    width: 100%;
+  `,
 };
 
 const StyledDescription = styled.p`
-grid-area: description;
-opacity: 0.5;
-`
+  grid-area: description;
+  opacity: 0.5;
+`;
 
-const DetailsBase =  styled.div`
-margin: ${({theme}) => theme.spacing['3xs']};
-display: grid;
-gap: ${({theme}) => theme.spacing['3xs']};
-span {flex:1;};
+const DetailsBase = styled.div`
+  margin: ${({ theme }) => theme.spacing["3xs"]};
+  display: grid;
+  gap: ${({ theme }) => theme.spacing["3xs"]};
+  span {
+    flex: 1;
+  }
 `;
 const StyledDetails = {
   Big: styled(DetailsBase)`
     grid-template-columns: 1fr;
     grid-template-areas:
-      'title'
-      'detail'
-      'detail'
-      'detail'
-      'detail'
-      'detail'
-      'detail'
-      'description';
+      "title"
+      "detail"
+      "detail"
+      "detail"
+      "detail"
+      "detail"
+      "detail"
+      "description";
     @media (min-width: 640px) {
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
-        'title title'
-        'detail detail'
-        'detail detail'
-        'detail detail'
-        'description description';
+        "title title"
+        "detail detail"
+        "detail detail"
+        "detail detail"
+        "description description";
     }
   `,
   Small: styled(DetailsBase)`
-    grid-template-areas: 'title';
+    grid-template-areas: "title";
     grid-template-columns: 100%;
     @media (min-width: 640px) {
-      grid-template-areas: 'title title';
+      grid-template-areas: "title title";
       grid-template-columns: 1fr 1fr;
     }
-  `
-}
+  `,
+};
 
-export {StyledContainer,StyledImageContainer,StyledTitle,StyledDetails,StyledDescription}
+export {
+  StyledContainer,
+  StyledImageContainer,
+  StyledTitle,
+  StyledDetails,
+  StyledDescription,
+};
