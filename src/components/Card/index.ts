@@ -1,2 +1,2 @@
 export { Card, SkeletonCard } from "./Card";
-export { CardBig, SkeletonCardFocused } from "./CardBig";
+export { CardBig, SkeletonCardBig } from "./CardBig";

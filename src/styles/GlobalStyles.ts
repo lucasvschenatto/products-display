@@ -68,6 +68,9 @@ a{
 		cursor: pointer;
 	}
 }
+span.react-loading-skeleton{
+	z-index:0;
+}
 `;
 
 export default GlobalStyle;

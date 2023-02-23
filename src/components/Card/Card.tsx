@@ -3,6 +3,7 @@ import type { PropsWithProduct } from '@/types/product';
 import { Rating } from '@/components/Rating';
 import { Detail } from '@/components/Detail';
 import {StyledContainer,StyledDetails,StyledImageContainer,StyledTitle} from './Card.styled'
+import Skeleton from 'react-loading-skeleton';
 
 function CardDetails({product}: PropsWithProduct) {
 	return (
@@ -20,6 +21,20 @@ function CardDetails({product}: PropsWithProduct) {
 	);
 }
 
+function SkeletonCardDetails() {
+	return (
+		<StyledDetails.Small>
+			<StyledTitle.Small><Skeleton/></StyledTitle.Small>
+			<Detail label='Price' noText><Skeleton/></Detail>
+			<Detail label='Rating' noText><Skeleton/></Detail>
+			<Detail label='Discount' noText><Skeleton/></Detail>
+			<Detail label='Stock' noText><Skeleton/></Detail>
+			<Detail label='Brand' noText><Skeleton/></Detail>
+			<Detail label='Category' noText><Skeleton/></Detail>
+		</StyledDetails.Small>
+	);
+}
+
 export function Card({product}: PropsWithProduct) {
 	return (
 		<StyledContainer.Small href={`products/${product.id}`}>
@@ -33,7 +48,11 @@ export function Card({product}: PropsWithProduct) {
 
 export function SkeletonCard() {
 	return (
-		<StyledContainer.Small href={`products`}>
+		<StyledContainer.Small href={`.`}>
+			<StyledImageContainer.Small>
+				<Skeleton height={"100%"}/>
+			</StyledImageContainer.Small>
+			<SkeletonCardDetails/>
 		</StyledContainer.Small>
 	);
 }

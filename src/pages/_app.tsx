@@ -3,8 +3,10 @@ import { darkTheme } from '@/styles/theme';
 import { Hydrate, QueryClient, QueryClientConfig, QueryClientProvider } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ReactNode, useState } from 'react';
+import { ThemeProvider, useTheme } from 'styled-components';
+import { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const config: QueryClientConfig = {
 	defaultOptions: {
@@ -17,6 +19,13 @@ const config: QueryClientConfig = {
 		}
 	}
 };
+
+const ThemedSkeleton = ({children}:{children:ReactNode})=>{
+	const theme = useTheme()
+	return <SkeletonTheme baseColor={theme.colors.darkGrey} highlightColor={theme.colors.grey}>
+				{children}
+		</SkeletonTheme>
+}
 
 export default function App({ Component, pageProps }: AppProps) {
 	const [queryClient] = useState(()=> new QueryClient(config));
@@ -32,7 +41,9 @@ export default function App({ Component, pageProps }: AppProps) {
 				<Hydrate state={pageProps.dehydratedState}>
 					<ThemeProvider theme={darkTheme}>
 						<GlobalStyle />
-						<Component {...pageProps} />
+						<ThemedSkeleton>
+							<Component {...pageProps} />
+						</ThemedSkeleton>
 					</ThemeProvider>
 				</Hydrate>
 			</QueryClientProvider>

@@ -89,9 +89,11 @@ const StyledImageContainer = {
 const StyledTitle = {
   Big:styled.h3`
     grid-area: title;
+    width:100%;
   `,
   Small: styled.h4`
     grid-area: title;
+    width:100%;
   `
 };
 
@@ -101,9 +103,10 @@ opacity: 0.5;
 `
 
 const DetailsBase =  styled.div`
-margin: ${({theme}) => theme.spacing['4xs']} ${({theme}) => theme.spacing['3xs']};
+margin: ${({theme}) => theme.spacing['3xs']};
 display: grid;
-gap: ${({theme}) => theme.spacing['2xs']};
+gap: ${({theme}) => theme.spacing['3xs']};
+span {flex:1;};
 `;
 const StyledDetails = {
   Big: styled(DetailsBase)`
@@ -126,23 +129,13 @@ const StyledDetails = {
         'detail detail'
         'description description';
     }
-    @media (min-width: 640px) and (min-height: 640px) {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 7rem;
-      grid-template-areas:
-        'title title'
-        'detail detail'
-        'detail detail'
-        'detail detail'
-        'description description';
-    }
   `,
   Small: styled(DetailsBase)`
     grid-template-areas: 'title';
     grid-template-columns: 100%;
     @media (min-width: 640px) {
       grid-template-areas: 'title title';
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 1fr 1fr;
     }
   `
 }
