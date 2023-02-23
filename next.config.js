@@ -1,13 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-	images: {
-		remotePatterns: [
-			{
-				hostname: 'i.dummyjson.com'
-			}
-		]
-	}
-}
+  compiler: {
+    styledComponents: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        hostname: "i.dummyjson.com",
+      },
+    ],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
