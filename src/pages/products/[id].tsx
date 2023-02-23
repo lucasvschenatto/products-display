@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<
 };
 
 const ProductPage: NextPage<{ id: string }> = function ({ id }) {
-  const { data: product, isError, isLoading, error } = useProduct(id);
+  const { data: product, isError, error } = useProduct(id);
   return (
     <>
       <Head>
@@ -55,7 +55,6 @@ const ProductPage: NextPage<{ id: string }> = function ({ id }) {
       </Head>
       <Layout>
         {product && <CardBig product={product} />}
-        {isLoading && <SkeletonCardBig />}
         {isError && <NextError title={error.message} statusCode={error.code} />}
       </Layout>
     </>
