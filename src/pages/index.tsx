@@ -1,6 +1,6 @@
 import Head from "next/head";
 import NextError from "next/error";
-import { Card, SkeletonCard } from "@/components/Card";
+import { Card } from "@/components/Card";
 import { Gallery } from "@/components/Gallery";
 import { Layout } from "@/components/Layout";
 import { useProducts } from "@/hooks/useProducts";

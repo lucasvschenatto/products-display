@@ -3,7 +3,7 @@ import Head from "next/head";
 import NextError from "next/error";
 import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 import { Layout } from "@/components/Layout";
-import { CardBig, SkeletonCardBig } from "@/components/Card";
+import { CardBig } from "@/components/Card";
 import { Product } from "@/types/product";
 import { getProduct } from "@/services/productService";
 import { useProduct } from "@/hooks/useProduct";
