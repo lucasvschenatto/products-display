@@ -11,3 +11,7 @@ export type Product = {
   thumbnail: string;
   images: string[];
 };
+
+export type PropsWithProduct = {
+  product: Product;
+};
