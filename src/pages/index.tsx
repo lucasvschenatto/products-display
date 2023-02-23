@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps<{
 };
 
 export default function Home() {
-  const { data: products, isError, isLoading, error } = useProducts();
+  const { data: products, isError, error } = useProducts();
   return (
     <>
       <Head>
@@ -35,10 +35,6 @@ export default function Home() {
             products.map((product) => (
               <Card key={product.id} product={product} />
             ))}
-          {isLoading &&
-            new Array(6)
-              .fill(null)
-              .map((_, index) => <SkeletonCard key={index} />)}
           {isError && (
             <NextError title={error.message} statusCode={error.code} />
           )}
