@@ -5,13 +5,11 @@ import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 import { Layout } from "@/components/Layout";
 import { CardBig } from "@/components/Card";
 import { Product } from "@/types/product";
-import { getProduct } from "@/services/productService";
+import { getProductFromSource, getProductsFromSource } from "@/services";
 import { useProduct } from "@/hooks/useProduct";
 
 export const getStaticPaths: GetStaticPaths = async function () {
-  const productsAPI = `${process.env.HOST ?? ""}/api/products`;
-  const response = await fetch(productsAPI);
-  const products = (await response.json()) as Product[];
+  const products = await getProductsFromSource();
 
   return {
     paths: products.map(({ id }) => ({ params: { id: String(id) } })),
@@ -29,7 +27,7 @@ export const getStaticProps: GetStaticProps<
   } else {
     await queryClient.prefetchQuery<Product, { code: number; message: string }>(
       ["product", params.id],
-      () => getProduct(params.id)
+      () => getProductFromSource(params.id)
     );
     return {
       props: {

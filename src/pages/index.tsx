@@ -6,13 +6,13 @@ import { Layout } from "@/components/Layout";
 import { useProducts } from "@/hooks/useProducts";
 import type { GetStaticProps } from "next/types";
 import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
-import { getProducts } from "@/services/productService";
+import { getProductsFromSource } from "@/services";
 
 export const getStaticProps: GetStaticProps<{
   dehydratedState: DehydratedState;
 }> = async function () {
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery(["products"], getProducts);
+  await queryClient.prefetchQuery(["products"], getProductsFromSource);
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
